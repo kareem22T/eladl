@@ -1,0 +1,187 @@
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+body {
+    background: #3C0303;
+    background: linear-gradient(90deg, rgba(60, 3, 3, 1) 0%, rgba(111, 0, 2, 1) 50%, rgba(0, 0, 0, 1) 100%);
+    position: relative;
+}
+@font-face {
+  font-family: "TheSansCustom";
+  src: url("../fonts/TheSans.otf") format("opentype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap; /* good UX: text shows with fallback then swaps to font */
+  /* Optional: add unicode-range to limit glyphs if you want */
+}
+.container {
+    width: 100%;
+    padding: 1rem;
+    max-width: 500px;
+    margin: auto;
+    background-image: url('./../imgs/overlay.png');
+    background-size: cover;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    z-index: 3;
+    font-family: 'TheSansCustom';
+    text-align: right;
+    direction: rtl;
+}
+
+body::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #1E0404;
+    background: linear-gradient(180deg, rgba(30, 4, 4, 0.28) 0%, rgba(30, 4, 4, 1) 78%);
+    z-index: 2;
+}
+body::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-55%, -50%);
+    width: 100%;
+    height: 80%;
+    padding: 1rem;
+    max-width: 500px;
+    background-image: url('../imgs/person.png');
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    z-index: 2;
+}
+
+.container .logos {
+    position: relative;
+    z-index: 4;
+    display: flex;
+    justify-content: space-between;
+}
+
+.container .logos img {
+    width: 90px;
+}
+
+.container footer {
+    position: relative;
+    z-index: 4;
+    color: #fff;
+    text-align: center;
+    font-size: 14px;
+    margin-bottom: 1rem;
+}
+
+.container .content-wrapper {
+    position: relative;
+    z-index: 4;
+    padding: 0 1.5rem;
+}
+
+.container .content-wrapper header {
+  background-color: #1e0404a9;
+  padding: 0 2rem;
+  position: relative;
+  z-index: 4;
+  width: max-content;
+  border-radius: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.105);
+  margin: auto;
+  margin-bottom: 1.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+}
+
+.container .content-wrapper header button {
+    background-color: transparent;
+    border: none;
+    font-family: 'TheSansCustom';
+    color: #fff;
+    position: relative;
+    padding: .75rem 0;
+}
+
+.container .content-wrapper header button.active::after{
+    content: "";
+    bottom: -1px;
+    width: 100%;
+    height: 2px;
+    position: absolute;
+    display: block;
+    background-color: #910004;
+}
+
+.container .content-wrapper header span {
+    height: 20px;
+    width: 1px;
+    display: block;
+    background-color: rgba(255, 255, 255, 0.503);
+}
+
+.container .content-wrapper .input-group {
+    position: relative;
+    margin-bottom: .75rem;
+}
+
+.container .content-wrapper .input-group input {
+    padding: 12px 14px;
+    font-family: 'TheSansCustom';
+    font-size: 16px;
+    color: #1E0404;
+    border-radius: 16px;
+    width: 100%;
+    border: none;
+    padding-right: 2.7rem;
+}
+
+.container .content-wrapper .input-group input:focus {
+    border: none;
+    outline: 1px solid #910004;
+}
+
+
+.container .content-wrapper .input-group svg {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    right: 10px;
+    stroke: #1E0404;
+        width: 22px;
+    height: 22px;
+}
+.form-wrapper {
+    margin-bottom: 2.5rem;
+}
+
+.container .content-wrapper form  .form-wrapper button {
+    padding: 12px 16px;
+    font-family: 'TheSansCustom';
+    color: #ffffff;
+    border-radius: 16px;
+    width: 100%;
+    border: none;
+    background: #3C0303;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: .7rem;
+    font-size: 16px;
+    background: linear-gradient(90deg, rgba(60, 3, 3, 1) 0%, rgba(111, 0, 2, 1) 50%, rgba(60, 3, 3, 1) 100%);
+    margin-top: 2rem;
+}
+
+.container .content-wrapper form  .form-wrapper button svg {
+    width: 24px;
+    height: 24px;
+}
