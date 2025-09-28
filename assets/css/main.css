@@ -187,3 +187,29 @@ body::before {
     width: 24px;
     height: 24px;
 }
+
+.message-container {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+}
+
+.message-container.success {
+    background-color: #22c55e;
+    color: white;
+    padding: 12px 16px;
+    border-radius: 8px;
+    text-align: center;
+    margin-bottom: 1.5rem;
+    font-weight: 600;
+}
+
+.message-container.error {
+    background-color: #ef4444;
+    color: white;
+    padding: 12px 16px;
+    border-radius: 8px;
+    text-align: center;
+    margin-bottom: 1.5rem;
+    font-weight: 600;
+}
