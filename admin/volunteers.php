@@ -7,6 +7,17 @@ if (!isset($_SESSION['admin'])) {
 require '../backend/db.php';
 $stmt = $pdo->query('SELECT * FROM volunteers');
 $rows = $stmt->fetchAll();
+
+// Helper function to translate contribution types
+function getContributionTypeText($type)
+{
+    $types = [
+        'social_media' => 'دعم قنوات التواصل',
+        'advertising' => 'دعم اعلانات لافتات',
+        'party_support' => 'دعم الحزب'
+    ];
+    return $types[$type] ?? $type;
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -47,36 +58,42 @@ $rows = $stmt->fetchAll();
 
         <div class="table-container">
             <?php if (count($rows) > 0): ?>
-            <div class="table-header">
-                <h3 class="table-title">Volunteer Records</h3>
-                <span class="table-count"><?= count($rows) ?> entries</span>
-            </div>
-            <table>
-                <thead>
-                    <tr>
-                        <th>Name</th>
-                        <th>Phone</th>
-                        <th>Email</th>
-                        <th>Address</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <?php foreach ($rows as $row): ?>
-                    <tr>
-                        <td><?= htmlspecialchars($row['name']) ?></td>
-                        <td><?= htmlspecialchars($row['phone']) ?></td>
-                        <td><?= htmlspecialchars($row['email']) ?></td>
-                        <td><?= htmlspecialchars($row['address']) ?></td>
-                    </tr>
-                    <?php endforeach; ?>
-                </tbody>
-            </table>
+                <div class="table-header">
+                    <h3 class="table-title">Volunteer Records</h3>
+                    <span class="table-count"><?= count($rows) ?> entries</span>
+                </div>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Phone</th>
+                            <th>Email</th>
+                            <th>Address</th>
+                            <th>Contribution Type</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <?php foreach ($rows as $row): ?>
+                            <tr>
+                                <td><?= htmlspecialchars($row['name']) ?></td>
+                                <td><?= htmlspecialchars($row['phone']) ?></td>
+                                <td><?= htmlspecialchars($row['email']) ?></td>
+                                <td><?= htmlspecialchars($row['address']) ?></td>
+                                <td>
+                                    <span class="contribution-type">
+                                        <?= htmlspecialchars(getContributionTypeText($row['contribution_type'] ?? '')) ?>
+                                    </span>
+                                </td>
+                            </tr>
+                        <?php endforeach; ?>
+                    </tbody>
+                </table>
             <?php else: ?>
-            <div class="empty-state">
-                <div class="icon">👥</div>
-                <h3>No volunteers found</h3>
-                <p>There are currently no volunteer records in the database.</p>
-            </div>
+                <div class="empty-state">
+                    <div class="icon">👥</div>
+                    <h3>No volunteers found</h3>
+                    <p>There are currently no volunteer records in the database.</p>
+                </div>
             <?php endif; ?>
         </div>
     </div>

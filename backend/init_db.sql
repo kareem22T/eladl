@@ -1,16 +1,32 @@
-CREATE DATABASE IF NOT EXISTS eladl_db;
+CREATE DATABASE
+IF NOT EXISTS eladl_db;
 USE eladl_db;
-CREATE TABLE IF NOT EXISTS donations (
+CREATE TABLE
+IF NOT EXISTS donations
+(
     id INT AUTO_INCREMENT PRIMARY KEY,
-    name VARCHAR(255),
-    phone VARCHAR(50),
-    address VARCHAR(255),
-    email VARCHAR(255)
+    name VARCHAR
+(255),
+    phone VARCHAR
+(50),
+    address VARCHAR
+(255),
+    email VARCHAR
+(255)
 );
-CREATE TABLE IF NOT EXISTS volunteers (
+CREATE TABLE
+IF NOT EXISTS volunteers
+(
     id INT AUTO_INCREMENT PRIMARY KEY,
-    name VARCHAR(255),
-    phone VARCHAR(50),
-    address VARCHAR(255),
-    email VARCHAR(255)
+    name VARCHAR
+(255),
+    phone VARCHAR
+(50),
+    address VARCHAR
+(255),
+    email VARCHAR
+(255)
 );
+ALTER TABLE volunteers ADD COLUMN
+IF NOT EXISTS contribution_type VARCHAR
+(50);
