@@ -16,23 +16,52 @@ if (!isset($_SESSION['admin'])) {
 </head>
 
 <body>
-    <div class="container">
-        <div class="card">
-            <h1>Admin Dashboard</h1>
-            <p style="text-align: center; color: #666; margin-bottom: 30px; font-size: 18px;">
-                Welcome to the administration panel. Choose an option below to get started.
-            </p>
-            <ul class="nav-menu">
-                <li class="nav-item">
-                    <a href="donations.php">View Donations</a>
-                </li>
-                <li class="nav-item">
-                    <a href="volunteers.php">View Volunteers</a>
-                </li>
-                <li class="nav-item">
-                    <a href="logout.php" onclick="return confirm('Are you sure you want to logout?')">Logout</a>
-                </li>
+    <!-- Navigation Header -->
+    <nav class="header-nav">
+        <div class="nav-container">
+            <a href="dashboard.php" class="logo">Admin Panel</a>
+            <ul class="nav-links">
+                <li><a href="dashboard.php" class="active"><span
+                            class="icon icon-dashboard"></span><span>Dashboard</span></a></li>
+                <li><a href="donations.php"><span class="icon icon-donations"></span><span>Donations</span></a></li>
+                <li><a href="volunteers.php"><span class="icon icon-volunteers"></span><span>Volunteers</span></a></li>
+                <li><a href="logout.php" onclick="return confirm('Are you sure you want to logout?')"><span
+                            class="icon icon-logout"></span><span>Logout</span></a></li>
             </ul>
+        </div>
+    </nav>
+
+    <div class="container">
+        <h1>Dashboard</h1>
+        <p style="text-align: center; color: #64748b; margin-bottom: 2rem; font-size: 1.1rem;">
+            Welcome to the administration panel. Manage your platform efficiently.
+        </p>
+
+        <!-- Dashboard Cards Grid -->
+        <div class="dashboard-grid">
+            <a href="donations.php" class="dashboard-card">
+                <div class="icon">💝</div>
+                <div class="dashboard-card-content">
+                    <h3>Manage Donations</h3>
+                    <p>View and manage all donation records</p>
+                </div>
+            </a>
+
+            <a href="volunteers.php" class="dashboard-card">
+                <div class="icon">👥</div>
+                <div class="dashboard-card-content">
+                    <h3>Manage Volunteers</h3>
+                    <p>View and manage volunteer information</p>
+                </div>
+            </a>
+
+            <div class="dashboard-card" style="pointer-events: none; opacity: 0.6;">
+                <div class="icon">📊</div>
+                <div class="dashboard-card-content">
+                    <h3>Analytics</h3>
+                    <p>Coming soon - View detailed statistics</p>
+                </div>
+            </div>
         </div>
     </div>
 </body>
