@@ -136,7 +136,7 @@ body::before {
     margin-bottom: .75rem;
 }
 
-.container .content-wrapper .input-group input {
+.container .content-wrapper .input-group input, .container .content-wrapper .input-group select {
     padding: 12px 14px;
     font-family: 'TheSansCustom';
     font-size: 16px;
@@ -147,7 +147,7 @@ body::before {
     padding-right: 2.7rem;
 }
 
-.container .content-wrapper .input-group input:focus {
+.container .content-wrapper .input-group input:focus, .container .content-wrapper .input-group select:focus {
     border: none;
     outline: 1px solid #910004;
 }
