@@ -15,107 +15,188 @@
         <div class="content-wrapper">
             <form action="">
                 <header>
-                    <button class="active">
-                        ساهم بالتبرع
-                    </button>
+                    <button type="button" class="active" onclick="showForm('donation')">ساهم بالتبرع</button>
                     <span></span>
-                    <button>
-                        سجل للتطوع
-                    </button>
+                    <button type="button" onclick="showForm('volunteer')">سجل للتطوع</button>
                 </header>
                 <div class="form-wrapper">
-                    <div class="input-group">
-                        <input type="text" placeholder="الاسم الثلاثي">
-                        <svg
+                    <form id="donationForm" action="backend/submit_donation.php" method="POST" style="display:block">
+                        <div class="input-group">
+                            <input type="text" name="name" placeholder="الاسم الثلاثي" required>
+                            <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                width="32"
+                                height="32"
+                                viewBox="0 0 24 24"
+                                fill="none"
+                                stroke="currentColor"
+                                stroke-width="1.25"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                            >
+                            <path d="M8 7a4 4 0 1 0 8 0a4 4 0 0 0 -8 0" />
+                            <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
+                            </svg>
+                        </div>
+                        <div class="input-group">
+                            <input type="text" name="phone" placeholder="رقم الهاتف" required>
+                            <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                width="32"
+                                height="32"
+                                viewBox="0 0 24 24"
+                                fill="none"
+                                stroke="currentColor"
+                                stroke-width="1.25"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                            >
+                            <path d="M20 4l-2 2" />
+                            <path d="M22 10.5l-2.5 -.5" />
+                            <path d="M13.5 2l.5 2.5" />
+                            <path d="M5 4h4l2 5l-2.5 1.5a11 11 0 0 0 5 5l1.5 -2.5l5 2v4a2 2 0 0 1 -2 2c-8.072 -.49 -14.51 -6.928 -15 -15a2 2 0 0 1 2 -2" />
+                            </svg>
+                        </div>
+                        <div class="input-group">
+                            <input type="text" name="address" placeholder="المنطقة والعنوان" required>
+                            <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                width="32"
+                                height="32"
+                                viewBox="0 0 24 24"
+                                fill="none"
+                                stroke="currentColor"
+                                stroke-width="1.25"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                            >
+                            <path d="M20 4l-2 2" />
+                            <path d="M22 10.5l-2.5 -.5" />
+                            <path d="M13.5 2l.5 2.5" />
+                            <path d="M5 4h4l2 5l-2.5 1.5a11 11 0 0 0 5 5l1.5 -2.5l5 2v4a2 2 0 0 1 -2 2c-8.072 -.49 -14.51 -6.928 -15 -15a2 2 0 0 1 2 -2" />
+                            </svg>
+                        </div>
+                        <div class="input-group">
+                            <input type="email" name="email" placeholder="البريد الالكتروني" required>
+                            <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                width="32"
+                                height="32"
+                                viewBox="0 0 24 24"
+                                fill="none"
+                                stroke="currentColor"
+                                stroke-width="1.25"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                            >
+                            <path d="M20 4l-2 2" />
+                            <path d="M22 10.5l-2.5 -.5" />
+                            <path d="M13.5 2l.5 2.5" />
+                            <path d="M5 4h4l2 5l-2.5 1.5a11 11 0 0 0 5 5l1.5 -2.5l5 2v4a2 2 0 0 1 -2 2c-8.072 -.49 -14.51 -6.928 -15 -15a2 2 0 0 1 2 -2" />
+                            </svg>
+                        </div>
+                        <button type="submit">ارسال البيانات</button>
+                    </form>
+                    <form id="volunteerForm" action="backend/submit_volunteer.php" method="POST" style="display:none">
+                        <div class="input-group">
+                            <input type="text" name="name" placeholder="الاسم الثلاثي" required>
+                            <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                width="32"
+                                height="32"
+                                viewBox="0 0 24 24"
+                                fill="none"
+                                stroke="currentColor"
+                                stroke-width="1.25"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                            >
+                            <path d="M8 7a4 4 0 1 0 8 0a4 4 0 0 0 -8 0" />
+                            <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
+                            </svg>
+                        </div>
+                        <div class="input-group">
+                            <input type="text" name="phone" placeholder="رقم الهاتف" required>
+                            <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                width="32"
+                                height="32"
+                                viewBox="0 0 24 24"
+                                fill="none"
+                                stroke="currentColor"
+                                stroke-width="1.25"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                            >
+                            <path d="M20 4l-2 2" />
+                            <path d="M22 10.5l-2.5 -.5" />
+                            <path d="M13.5 2l.5 2.5" />
+                            <path d="M5 4h4l2 5l-2.5 1.5a11 11 0 0 0 5 5l1.5 -2.5l5 2v4a2 2 0 0 1 -2 2c-8.072 -.49 -14.51 -6.928 -15 -15a2 2 0 0 1 2 -2" />
+                            </svg>
+                        </div>
+                        <div class="input-group">
+                            <input type="text" name="address" placeholder="المنطقة والعنوان" required>
+                            <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                width="32"
+                                height="32"
+                                viewBox="0 0 24 24"
+                                fill="none"
+                                stroke="currentColor"
+                                stroke-width="1.25"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                            >
+                            <path d="M20 4l-2 2" />
+                            <path d="M22 10.5l-2.5 -.5" />
+                            <path d="M13.5 2l.5 2.5" />
+                            <path d="M5 4h4l2 5l-2.5 1.5a11 11 0 0 0 5 5l1.5 -2.5l5 2v4a2 2 0 0 1 -2 2c-8.072 -.49 -14.51 -6.928 -15 -15a2 2 0 0 1 2 -2" />
+                            </svg>
+                        </div>
+                        <div class="input-group">
+                            <input type="email" name="email" placeholder="البريد الالكتروني" required>
+                            <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                width="32"
+                                height="32"
+                                viewBox="0 0 24 24"
+                                fill="none"
+                                stroke="currentColor"
+                                stroke-width="1.25"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                            >
+                            <path d="M20 4l-2 2" />
+                            <path d="M22 10.5l-2.5 -.5" />
+                            <path d="M13.5 2l.5 2.5" />
+                            <path d="M5 4h4l2 5l-2.5 1.5a11 11 0 0 0 5 5l1.5 -2.5l5 2v4a2 2 0 0 1 -2 2c-8.072 -.49 -14.51 -6.928 -15 -15a2 2 0 0 1 2 -2" />
+                            </svg>
+                        </div>
+                        <button type="submit">
+                            <svg
                             xmlns="http://www.w3.org/2000/svg"
                             width="32"
                             height="32"
                             viewBox="0 0 24 24"
                             fill="none"
-                            stroke="currentColor"
+                            stroke="#fff"
                             stroke-width="1.25"
                             stroke-linecap="round"
                             stroke-linejoin="round"
-                        >
-                        <path d="M8 7a4 4 0 1 0 8 0a4 4 0 0 0 -8 0" />
-                        <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
-                        </svg>
-                    </div>
-                    <div class="input-group">
-                        <input type="text" placeholder="رقم الهاتف">
-                        <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            width="32"
-                            height="32"
-                            viewBox="0 0 24 24"
-                            fill="none"
-                            stroke="currentColor"
-                            stroke-width="1.25"
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
-                        >
-                        <path d="M20 4l-2 2" />
-                        <path d="M22 10.5l-2.5 -.5" />
-                        <path d="M13.5 2l.5 2.5" />
-                        <path d="M5 4h4l2 5l-2.5 1.5a11 11 0 0 0 5 5l1.5 -2.5l5 2v4a2 2 0 0 1 -2 2c-8.072 -.49 -14.51 -6.928 -15 -15a2 2 0 0 1 2 -2" />
-                        </svg>
-                    </div>
-                    <div class="input-group">
-                        <input type="text" placeholder="المنطقة والعنوان">
-                        <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            width="32"
-                            height="32"
-                            viewBox="0 0 24 24"
-                            fill="none"
-                            stroke="currentColor"
-                            stroke-width="1.25"
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
-                        >
-                        <path d="M20 4l-2 2" />
-                        <path d="M22 10.5l-2.5 -.5" />
-                        <path d="M13.5 2l.5 2.5" />
-                        <path d="M5 4h4l2 5l-2.5 1.5a11 11 0 0 0 5 5l1.5 -2.5l5 2v4a2 2 0 0 1 -2 2c-8.072 -.49 -14.51 -6.928 -15 -15a2 2 0 0 1 2 -2" />
-                        </svg>
-                    </div>
-                    <div class="input-group">
-                        <input type="text" placeholder="البريد الالكتروني">
-                        <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            width="32"
-                            height="32"
-                            viewBox="0 0 24 24"
-                            fill="none"
-                            stroke="currentColor"
-                            stroke-width="1.25"
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
-                        >
-                        <path d="M20 4l-2 2" />
-                        <path d="M22 10.5l-2.5 -.5" />
-                        <path d="M13.5 2l.5 2.5" />
-                        <path d="M5 4h4l2 5l-2.5 1.5a11 11 0 0 0 5 5l1.5 -2.5l5 2v4a2 2 0 0 1 -2 2c-8.072 -.49 -14.51 -6.928 -15 -15a2 2 0 0 1 2 -2" />
-                        </svg>
-                    </div>
-                    <button>
-                        <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        width="32"
-                        height="32"
-                        viewBox="0 0 24 24"
-                        fill="none"
-                        stroke="#fff"
-                        stroke-width="1.25"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        >
-                        <path d="M10 14l11 -11" />
-                        <path d="M21 3l-6.5 18a.55 .55 0 0 1 -1 0l-3.5 -7l-7 -3.5a.55 .55 0 0 1 0 -1l18 -6.5" />
-                        </svg>
-                        ارسال البيانات
-                    </button>
+                            >
+                            <path d="M10 14l11 -11" />
+                            <path d="M21 3l-6.5 18a.55 .55 0 0 1 -1 0l-3.5 -7l-7 -3.5a.55 .55 0 0 1 0 -1l18 -6.5" />
+                            </svg>
+                            ارسال البيانات
+                        </button>
+                    </form>
                 </div>
+                <script>
+                function showForm(type) {
+                    document.getElementById('donationForm').style.display = type === 'donation' ? 'block' : 'none';
+                    document.getElementById('volunteerForm').style.display = type === 'volunteer' ? 'block' : 'none';
+                }
+                </script>
             </form>
             <footer>
                 جميع الحقوق محفوظة لحزب العدل
