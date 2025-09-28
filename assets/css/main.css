@@ -110,6 +110,8 @@ body::before {
     color: #fff;
     position: relative;
     padding: .75rem 0;
+    font-size: 18px;
+    font-weight: bold;
 }
 
 .container .content-wrapper header button.active::after{
@@ -164,7 +166,7 @@ body::before {
     margin-bottom: 2.5rem;
 }
 
-.container .content-wrapper form  .form-wrapper button {
+.container .content-wrapper form  button {
     padding: 12px 16px;
     font-family: 'TheSansCustom';
     color: #ffffff;
