@@ -27,6 +27,6 @@ IF NOT EXISTS volunteers
     email VARCHAR
 (255)
 );
-ALTER TABLE volunteers ADD COLUMN
-IF NOT EXISTS contribution_type VARCHAR
-(50);
+ALTER TABLE donations 
+ADD COLUMN contribution_type VARCHAR
+(50) AFTER email;
