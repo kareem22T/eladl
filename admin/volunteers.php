@@ -7,17 +7,6 @@ if (!isset($_SESSION['admin'])) {
 require '../backend/db.php';
 $stmt = $pdo->query('SELECT * FROM volunteers');
 $rows = $stmt->fetchAll();
-
-// Helper function to translate contribution types
-function getContributionTypeText($type)
-{
-    $types = [
-        'social_media' => 'دعم قنوات التواصل',
-        'advertising' => 'دعم اعلانات لافتات',
-        'party_support' => 'دعم الحزب'
-    ];
-    return $types[$type] ?? $type;
-}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -69,7 +58,6 @@ function getContributionTypeText($type)
                             <th>Phone</th>
                             <th>Email</th>
                             <th>Address</th>
-                            <th>Contribution Type</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -79,11 +67,6 @@ function getContributionTypeText($type)
                                 <td><?= htmlspecialchars($row['phone']) ?></td>
                                 <td><?= htmlspecialchars($row['email']) ?></td>
                                 <td><?= htmlspecialchars($row['address']) ?></td>
-                                <td>
-                                    <span class="contribution-type">
-                                        <?= htmlspecialchars(getContributionTypeText($row['contribution_type'] ?? '')) ?>
-                                    </span>
-                                </td>
                             </tr>
                         <?php endforeach; ?>
                     </tbody>

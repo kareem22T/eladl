@@ -8,14 +8,15 @@ try {
     $phone = $_POST['phone'] ?? '';
     $address = $_POST['address'] ?? '';
     $email = $_POST['email'] ?? '';
+    $contribution_type = $_POST['contribution_type'] ?? '';
 
     // Validate data
-    if (empty($name) || empty($phone) || empty($address) || empty($email)) {
+    if (empty($name) || empty($phone) || empty($address) || empty($email) || empty($contribution_type)) {
         throw new Exception('جميع الحقول مطلوبة');
     }
 
-    $stmt = $pdo->prepare('INSERT INTO donations (name, phone, address, email) VALUES (?, ?, ?, ?)');
-    $stmt->execute([$name, $phone, $address, $email]);
+    $stmt = $pdo->prepare('INSERT INTO donations (name, phone, address, email, contribution_type) VALUES (?, ?, ?, ?, ?)');
+    $stmt->execute([$name, $phone, $address, $email, $contribution_type]);
 
     echo json_encode([
         'success' => true,
